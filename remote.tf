@@ -15,7 +15,7 @@ data "terraform_remote_state" "b2-bucket" {
   config = {
     organization = "gtis"
     workspaces = {
-      name = "b2-${var.app_name}-${var.app_env}"
+      name = "b2-${local.app_name_and_env}"
     }
   }
 }

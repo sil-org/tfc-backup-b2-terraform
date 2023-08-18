@@ -3,13 +3,11 @@ variable "aws_region" {
 }
 
 variable "aws_access_key" {
+  default = null
 }
 
 variable "aws_secret_key" {
-}
-
-variable "app_env" {
-  default = "prod"
+  default = null
 }
 
 variable "app_name" {
@@ -17,11 +15,11 @@ variable "app_name" {
 }
 
 variable "cpu" {
-  default = "200"
+  default = 200
 }
 
 variable "memory" {
-  default = "128"
+  default = 128
 }
 
 variable "tf_remote_common_organization" {
