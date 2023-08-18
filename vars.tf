@@ -42,10 +42,6 @@ variable "docker_tag" {
   default = "latest"
 }
 
-variable "log_level" {
-  description = "Level below which log messages are silenced"
-}
-
 variable "tags" {
   type    = map(string)
   default = {}

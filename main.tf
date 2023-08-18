@@ -49,7 +49,6 @@ locals {
       aws_region            = var.aws_region
       aws_access_key_id     = var.aws_access_key
       aws_secret_access_key = var.aws_secret_key
-      log_level             = var.log_level
       app_name              = var.app_name
       cw_log_group          = aws_cloudwatch_log_group.cw_b2_fsbackup.name
       cw_stream_prefix      = "B2_FS_backup-${local.app_name_and_env}"

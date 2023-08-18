@@ -17,7 +17,6 @@ data on a scheduled basis.
 * `tfc_organization_name` - Terraform Cloud organization name
 * `backup_path` - path in container to be backed up, default: `/tmp/tfcbackup`
 * `docker_tag` - Docker image tag, default: `latest`
-* `log_level` - Level below which log messages are silenced
 * `tags` - map of strings containing tags to be applied, default: `{}`
 * `b2_fsbackup_mode` - One of `init`, `backup`, default: `backup`
 * `b2_access_key` - Backblaze access key (`keyID`)
