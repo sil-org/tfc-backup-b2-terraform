@@ -59,8 +59,8 @@ locals {
 resource "aws_ecs_task_definition" "b2_fstd" {
   family                = "${var.app_name}-b2-fsbackup-${local.app_env}"
   container_definitions = local.task_def
-  #??  task_role_arn      = var.task_role_arn #???
-  #??  network_mode       = var.network_mode  #???
+  task_role_arn         = ""
+  network_mode          = "bridge"
 }
 
 /*
