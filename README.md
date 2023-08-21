@@ -19,8 +19,8 @@ data on a scheduled basis.
 * `docker_tag` - Docker image tag, default: `latest`
 * `tags` - map of strings containing tags to be applied, default: `{}`
 * `b2_fsbackup_mode` - One of `init`, `backup`, default: `backup`
-* `b2_access_key` - Backblaze access key (`keyID`)
-* `b2_secret_key` - Backblaze secret key (`applicationKey`)
+* `b2_account_id` - Backblaze Application Key ID (`keyID`)
+* `b2_account_key` - Backblaze Application Key secret (`applicationKey`)
 * `b2_fsbackup_args` - Additional arguments to the `restic backup` command, default: ""
 * `b2_fsbackup_forget_args` - Arguments to the `restic forget` command, default: `--keep-daily 45`
 * `b2_fsbackup_repo` - Restic repository name, e.g., `b2:bucketname:directory`

@@ -31,8 +31,8 @@ locals {
   task_def = templatefile("${path.module}/task-definition-b2-backup.tftpl",
     {
       atlas_token           = var.tfc_access_token
-      b2_access_key         = data.terraform_remote_state.b2-bucket.outputs.application_key_id
-      b2_secret_key         = data.terraform_remote_state.b2-bucket.outputs.application_key_secret
+      b2_account_id         = data.terraform_remote_state.b2-bucket.outputs.application_key_id
+      b2_account_key        = data.terraform_remote_state.b2-bucket.outputs.application_key_secret
       fsbackup_mode         = var.b2_fsbackup_mode
       tfc_organization_name = var.tfc_organization_name
       backup_args           = var.b2_fsbackup_args

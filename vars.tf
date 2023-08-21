@@ -52,10 +52,14 @@ variable "b2_fsbackup_mode" {
   description = "valid values: init, backup"
 }
 
-variable "b2_access_key" {
+variable "b2_account_id" {
+  default     = null
+  description = "Backblaze Application Key ID"
 }
 
-variable "b2_secret_key" {
+variable "b2_account_key" {
+  default     = null
+  description = "Backblaze Application Key (the secret)"
 }
 
 variable "b2_fsbackup_args" {
