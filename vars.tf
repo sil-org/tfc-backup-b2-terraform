@@ -79,9 +79,6 @@ variable "b2_fsbackup_host" {
   default = "restic_host"
 }
 
-variable "restic_tag" {
-}
-
 variable "b2_fsbackup_enabled" {
   default = true
 }
