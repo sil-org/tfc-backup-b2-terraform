@@ -87,6 +87,30 @@ DOC
 
 }
 
+resource "aws_iam_role_policy" "ecs_events_run_task_with_any_role" {
+  name = "ecs_events_run_task_with_any_role"
+  role = aws_iam_role.ecs_events.id
+
+  policy = <<DOC
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ecs:RunTask",
+            "Resource": "${replace(aws_ecs_task_definition.b2_fstd.arn, "/:\\d+$/", ":*")}"
+        }
+    ]
+}
+DOC
+
+}
+
 /*
  * CloudWatch configuration to start file system backup.
  */
