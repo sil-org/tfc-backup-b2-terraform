@@ -23,7 +23,7 @@ data on a scheduled basis.
 * `b2_account_key` - Backblaze Application Key secret (`applicationKey`)
 * `b2_fsbackup_args` - Additional arguments to the `restic backup` command, default: ""
 * `b2_fsbackup_forget_args` - Arguments to the `restic forget` command, default: `--keep-daily 45`
-* `b2_fsbackup_repo` - Restic repository name, e.g., `b2:bucketname:directory`
+* `repo_string` - Restic repository name, e.g., `b2:bucketname:directory`
 * `b2_fsbackup_host` - Hostname to use in Restic backups, default: `restic_host`
 * `b2_fsbackup_enabled` - One of `true`, `false`, default: `true`
 * `b2_fsbackup_schedule` - When backups should start, default (every day at 05:21 UTC): `21 05 * * ? *`

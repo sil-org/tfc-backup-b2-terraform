@@ -39,7 +39,7 @@ locals {
       forget_args           = var.b2_fsbackup_forget_args
       restic_host           = var.b2_fsbackup_host
       repo_pw               = random_id.b2_repo_password.hex
-      repo_string           = var.b2_fsbackup_repo
+      repo_string           = "b2:${data.terraform_remote_state.b2-bucket.outputs.b2_bucket_name}:restic"
       restic_tag            = "${local.app_name_and_env}-b2-fs-backup"
       source_path           = var.backup_path
       cpu                   = var.cpu

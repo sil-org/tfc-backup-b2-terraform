@@ -71,8 +71,9 @@ variable "b2_fsbackup_forget_args" {
   default = "--keep-daily 45"
 }
 
-variable "b2_fsbackup_repo" {
-  default = ""
+variable "repo_string" {
+  default     = null
+  description = "Restic repository name, e.g., `b2:bucketname:directory`"
 }
 
 variable "b2_fsbackup_host" {
