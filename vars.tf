@@ -16,11 +16,6 @@ variable "app_env" {
   type        = string
 }
 
-variable "app_environment" {
-  description = "The full app environment (e.g. production or staging)"
-  type        = string
-}
-
 variable "app_name" {
   default = "tfcbackup"
 }
@@ -80,11 +75,6 @@ variable "b2_fsbackup_args" {
 # e.g., "--keep-daily 7 --keep-weekly 5  --keep-monthly 3"
 variable "b2_fsbackup_forget_args" {
   default = "--keep-daily 45"
-}
-
-variable "repo_string" {
-  default     = null
-  description = "Restic repository name, e.g., `b2:bucketname:directory`"
 }
 
 variable "b2_fsbackup_host" {

@@ -13,7 +13,7 @@ data "terraform_remote_state" "b2-bucket" {
   backend = "remote"
 
   config = {
-    organization = "gtis"
+    organization = var.tf_remote_common_organization
     workspaces = {
       name = "b2-${var.app_name}-${var.app_env}"
     }
