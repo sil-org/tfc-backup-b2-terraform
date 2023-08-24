@@ -1,5 +1,6 @@
 variable "aws_region" {
-  default = "us-east-1"
+  description = "AWS region to run in (e.g. us-east-1)"
+  default     = "us-east-1"
 }
 
 variable "aws_access_key" {
@@ -8,6 +9,16 @@ variable "aws_access_key" {
 
 variable "aws_secret_key" {
   default = null
+}
+
+variable "app_env" {
+  description = "The abbreviated app environment (e.g. prod or stg)"
+  type        = string
+}
+
+variable "app_environment" {
+  description = "The full app environment (e.g. production or staging)"
+  type        = string
 }
 
 variable "app_name" {
