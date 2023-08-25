@@ -11,11 +11,6 @@ variable "aws_secret_key" {
   default = null
 }
 
-variable "app_env" {
-  description = "The abbreviated app environment (e.g. prod or stg)"
-  type        = string
-}
-
 variable "app_name" {
   default = "tfcbackup"
 }
