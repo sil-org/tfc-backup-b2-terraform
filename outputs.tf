@@ -4,6 +4,6 @@ output "bkup_cron_schedule" {
 
 output "b2_restic_repo_password" {
   description = "The (generated) password for your Restic repo on Backblaze"
-  sensitive   = false
+  sensitive   = true
   value       = module.tfc_backup_to_b2.b2_restic_repo_password
 }

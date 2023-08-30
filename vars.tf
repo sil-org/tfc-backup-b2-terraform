@@ -23,7 +23,7 @@ variable "memory" {
   default = 128
 }
 
-variable "tf_remote_common_organization" {
+variable "tf_remote_organization" {
 }
 
 variable "tf_remote_common_workspace" {

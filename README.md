@@ -11,7 +11,7 @@ data on a scheduled basis.
 * `app_name` - application name, default: `tfcbackup`
 * `cpu` - amount of CPU to allocate to the container, default: `200`
 * `memory` - amount of memory to allocate (MB), default: `128`
-* `tf_remote_common_organization` - 
+* `tf_remote_organization` - 
 * `tf_remote_common_workspace` - 
 * `tfc_access_token` - Terraform Cloud access token
 * `tfc_organization_name` - Terraform Cloud organization name
