@@ -11,12 +11,6 @@ variable "aws_secret_key" {
   default = null
 }
 
-variable "app_env" {
-  description = "The abbreviated app environment (e.g. prod or stg)"
-  default     = "prod"
-  type        = string
-}
-
 variable "app_name" {
   default = "tfcbackup"
 }
@@ -29,7 +23,7 @@ variable "memory" {
   default = 128
 }
 
-variable "tf_remote_common_organization" {
+variable "tf_remote_organization" {
 }
 
 variable "tf_remote_common_workspace" {

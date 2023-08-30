@@ -1,7 +1,7 @@
 module "tfc_backup_to_b2" {
   source = "github.com/silinternational/terraform-aws-tfc-backup-to-b2?ref=main"
 
-  app_env                 = var.app_env
+  app_env                 = data.terraform_remote_state.common.outputs.app_env
   app_environment         = data.terraform_remote_state.common.outputs.app_environment
   app_name                = var.app_name
   backup_path             = var.backup_path

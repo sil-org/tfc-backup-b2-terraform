@@ -8,11 +8,10 @@ data on a scheduled basis.
 * `aws_region` - AWS region to run in, default: `us-east-1`
 * `aws_access_key` - AWS access key
 * `aws_secret_key` - corresponding AWS secret
-* `app_env` - application environment, default: `prod`
 * `app_name` - application name, default: `tfcbackup`
 * `cpu` - amount of CPU to allocate to the container, default: `200`
 * `memory` - amount of memory to allocate (MB), default: `128`
-* `tf_remote_common_organization` - 
+* `tf_remote_organization` - 
 * `tf_remote_common_workspace` - 
 * `tfc_access_token` - Terraform Cloud access token
 * `tfc_organization_name` - Terraform Cloud organization name
