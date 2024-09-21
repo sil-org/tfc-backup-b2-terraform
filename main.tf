@@ -15,6 +15,7 @@ module "tfc_backup_to_b2" {
   b2_fsbackup_schedule    = var.b2_fsbackup_schedule
   cpu                     = var.cpu
   customer                = var.customer
+  docker_tag              = var.docker_tag
   ecs_cluster_arn         = data.terraform_remote_state.common.outputs.ecs_cluster_id
   memory                  = var.memory
   repo_string             = "b2:${data.terraform_remote_state.b2-bucket.outputs.b2_bucket_name}:restic"
