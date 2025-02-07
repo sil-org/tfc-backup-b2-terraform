@@ -40,7 +40,7 @@ variable "backup_path" {
 }
 
 variable "docker_tag" {
-  default = "0.1.6"
+  default = "latest"
 }
 
 variable "tags" {
