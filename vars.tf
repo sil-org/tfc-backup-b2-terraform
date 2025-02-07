@@ -89,7 +89,7 @@ variable "customer" {
   type        = string
 }
 
-variable "db_backup_sentry_dsn" {
+variable "tf_backup_sentry_dsn" {
   description = "Sentry logs Data Source Name (i.e. where to send the data)"
   type        = string
   default     = ""

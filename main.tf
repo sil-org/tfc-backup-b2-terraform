@@ -53,7 +53,7 @@ locals {
       app_name              = var.app_name
       cw_log_group          = aws_cloudwatch_log_group.cw_b2_fsbackup.name
       cw_stream_prefix      = "B2_FS_backup-${local.app_name_and_env}"
-      sentry_dsn            = var.db_backup_sentry_dsn
+      sentry_dsn            = var.tf_backup_sentry_dsn
     }
   )
 }
