@@ -40,7 +40,7 @@ variable "backup_path" {
 }
 
 variable "docker_tag" {
-  default = "latest"
+  default = "0.1.6"
 }
 
 variable "tags" {
@@ -87,4 +87,10 @@ variable "b2_fsbackup_schedule" {
 variable "customer" {
   description = "Customer name, used in AWS tags"
   type        = string
+}
+
+variable "db_backup_sentry_dsn" {
+  description = "Sentry logs Data Source Name (i.e. where to send the data)"
+  type        = string
+  default     = ""
 }
