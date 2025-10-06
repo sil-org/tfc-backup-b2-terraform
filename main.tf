@@ -48,7 +48,7 @@ locals {
       source_path           = var.backup_path
       cpu                   = var.cpu
       memory                = var.memory
-      docker_image          = "silintl/tfc-backup-b2"
+      docker_image          = "ghcr.io/sil-org/tfc-backup-b2"
       docker_tag            = var.docker_tag
       app_name              = var.app_name
       cw_log_group          = aws_cloudwatch_log_group.cw_b2_fsbackup.name
