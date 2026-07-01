@@ -28,7 +28,7 @@ resource "random_password" "b2_repo_password" {
 }
 
 /*
- * Create task definition for file system backup
+ * Create task definition for Terraform Cloud backup
  */
 locals {
   task_def = templatefile("${path.module}/task-definition-b2-backup.tftpl",
@@ -65,79 +65,14 @@ resource "aws_ecs_task_definition" "b2_fstd" {
   network_mode          = "bridge"
 }
 
-/*
- * Create role for scheduled running of backup task definitions.
- */
-resource "aws_iam_role" "ecs_events" {
-  name = "ecs_events-${local.app_name_and_env}"
+# CloudWatch configuration to start scheduled backup.
+module "backup" {
+  source  = "sil-org/scheduled-ecs-task/aws"
+  version = "~> 1.0"
 
-  assume_role_policy = <<DOC
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "events.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-DOC
-
-}
-
-resource "aws_iam_role_policy" "ecs_events_run_task_with_any_role" {
-  name = "ecs_events_run_task_with_any_role"
-  role = aws_iam_role.ecs_events.id
-
-  policy = <<DOC
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "iam:PassRole",
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "ecs:RunTask",
-            "Resource": "${aws_ecs_task_definition.b2_fstd.arn_without_revision}:*"
-        }
-    ]
-}
-DOC
-
-}
-
-/*
- * CloudWatch configuration to start file system backup.
- */
-resource "aws_cloudwatch_event_rule" "b2_fsbackup_rule" {
-  name        = "b2_fsbackup-${local.app_name_and_env}"
-  description = "Start B2 file system backup on cron schedule"
-
-  schedule_expression = "cron(${var.b2_fsbackup_schedule})"
-  is_enabled          = var.b2_fsbackup_enabled
-
-  tags = {
-    app_name = var.app_name
-    app_env  = data.terraform_remote_state.common.outputs.app_env
-  }
-}
-
-resource "aws_cloudwatch_event_target" "b2_fsbackup" {
-  target_id = "run-b2-fsbackup-${local.app_name_and_env}"
-  rule      = aws_cloudwatch_event_rule.b2_fsbackup_rule.name
-  arn       = data.terraform_remote_state.common.outputs.ecs_cluster_id
-  role_arn  = aws_iam_role.ecs_events.arn
-
-  ecs_target {
-    task_count          = 1
-    launch_type         = "EC2"
-    task_definition_arn = aws_ecs_task_definition.b2_fstd.arn
-  }
+  name                   = local.app_name_and_env
+  event_rule_description = "Start Terraform Cloud backup to B2"
+  event_schedule         = "cron(${var.b2_fsbackup_schedule})"
+  ecs_cluster_arn        = data.terraform_remote_state.common.outputs.ecs_cluster_id
+  task_definition_arn    = aws_ecs_task_definition.b2_fstd.arn
 }
