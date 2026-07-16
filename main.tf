@@ -68,7 +68,7 @@ resource "aws_ecs_task_definition" "b2_fstd" {
 # CloudWatch configuration to start scheduled backup.
 module "backup" {
   source  = "sil-org/scheduled-ecs-task/aws"
-  version = "~> 1.0"
+  version = "~> 1.1"
 
   name                   = local.app_name_and_env
   event_rule_description = "Start Terraform Cloud backup to B2"
