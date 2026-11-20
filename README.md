@@ -13,8 +13,6 @@ itself now runs in Lightsail, not ECS.
 * `tf_remote_organization` - 
 * `tf_remote_common_workspace` - 
 * `tags` - map of strings containing tags to be applied, default: `{}`
-* `b2_fsbackup_enabled` - One of `true`, `false`, default: `true`
-* `b2_fsbackup_schedule` - When backups should start, default (every day at 05:21 UTC): `21 05 * * ? *`
 * `customer` - Customer name, used in AWS tags
 
 ## Other setup required

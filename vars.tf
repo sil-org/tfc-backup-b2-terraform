@@ -26,14 +26,6 @@ variable "tags" {
   default = {}
 }
 
-variable "b2_fsbackup_enabled" {
-  default = true
-}
-
-variable "b2_fsbackup_schedule" {
-  default = "21 05 * * ? *" # Every day at 05:21 UTC
-}
-
 variable "customer" {
   description = "Customer name, used in AWS tags"
   type        = string
