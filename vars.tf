@@ -11,22 +11,7 @@ variable "aws_secret_key" {
   default = null
 }
 
-variable "app_name" {
-  default = "tfcbackup"
-}
-
-variable "tf_remote_organization" {
-}
-
-variable "tf_remote_common_workspace" {
-}
-
 variable "tags" {
   type    = map(string)
   default = {}
-}
-
-variable "customer" {
-  description = "Customer name, used in AWS tags"
-  type        = string
 }
